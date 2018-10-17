@@ -1,5 +1,9 @@
 # AngularMoviesSrc
 
+An Angular learning project.
+
+![App preview](https://raw.githubusercontent.com/juansaab/angular-movies/master/app-screenshot.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 
 ## Development server
