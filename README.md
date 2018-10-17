@@ -2,7 +2,7 @@
 
 An Angular learning project.
 
-![App preview](https://raw.githubusercontent.com/juansaab/angular-movies/master/app-screenshot.png)
+![App preview](https://github.com/juansaab/angular-movies/raw/master/app_screenshot.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 
