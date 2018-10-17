@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-movies-src'`, () => {
+  it(`should have as title 'angular-movies'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular-movies-src');
+    expect(app.title).toEqual('angular-movies');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-movies-src!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-movies!');
   });
 });

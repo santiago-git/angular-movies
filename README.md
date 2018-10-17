@@ -1,4 +1,4 @@
-# AngularMoviesSrc
+# Angular Movies
 
 An Angular learning project.
 
