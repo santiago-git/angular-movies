@@ -6,7 +6,7 @@
       <div class="form__row">
         <label class="form__label" for="username">Username</label>
         <input required class=form__input type="text" id="username" [(ngModel)]="user.username" name="username" #username="ngModel">
-        <p *ngIf="!username.valid">
+        <p class="form__error" *ngIf="!username.valid">
           Name is required
         </p>
       </div>
@@ -18,7 +18,7 @@
         <label class="form__label" for="password">Password</label>
         <input class=form__input type="password" id="password" [(ngModel)]="user.password" name="password">
       </div>
-      <button [disabled]="!signupForm.form.valid" type="submit" class="btn btn_block" [class.btn_loading]="loading">Crear cuenta</button>
+      <button [disabled]="!signupForm.form.valid || this.loading" type="submit" class="btn btn_block" [class.btn_loading]="loading">Crear cuenta</button>
     </form>
   </div>
 </main>

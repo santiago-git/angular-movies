@@ -6,6 +6,7 @@ export class User {
 }
 
 export class Auth {
+    // Token del usuario
     jwt: string;
     user: User;
 }

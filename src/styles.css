@@ -409,3 +409,9 @@ template {
   background-size: 60%;
   background-color: #CCC;
 }
+.form__error {
+  color: #ea2071;
+  margin-top: 0;
+  padding: 5px 10px;
+  font-size: 13px;
+}
