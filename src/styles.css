@@ -25,6 +25,7 @@ html {
 
 body {
   margin: 0;
+  background-color: #EFEFEF;
 }
 
 /**
@@ -341,4 +342,70 @@ template {
 
 [hidden] {
   display: none;
+}
+
+/**
+ * Container
+*/
+.container {
+  overflow: hidden;
+}
+.container__inner {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+
+/**
+ * Form
+*/
+.form {
+  max-width: 400px;
+}
+.form_centered {
+  margin: 0 auto;
+}
+.form__row {
+  margin: 1em 0;
+}
+.form__label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form__input {
+  width: 100%;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  padding: 10px;
+
+}
+
+/**
+ * Buttons
+*/
+.btn {
+  min-width: 180px;
+  background-color: #C51D32;
+  color: #FFF;
+  text-transform: uppercase;
+  padding: 15px 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.btn:hover, .btn:active {
+  background-color: #F6062B;
+}
+
+.btn_block {
+  margin: 0 auto;
+  display: block;
+}
+
+.btn_loading, .btn_loading:hover, .btn_loading:active  {
+  background:#CCC url('assets/img/ajax-loader.gif') no-repeat -32px -14px;
+  background-size: 60%;
+  background-color: #CCC;
 }

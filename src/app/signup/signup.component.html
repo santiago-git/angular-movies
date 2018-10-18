@@ -1,16 +1,21 @@
-<div class="app__content">
-  <form>
-    <div class="form__row">
-      <label class="form__label" for="username">Username:</label>
-      <input class=form_input type="text" id="username" [(ngModel)]="username" name="username">
-    </div>
-    <div class="form__row">
-      <label class="form__label" for="email">Email:</label>
-      <input class=form_input type="text" id="email" [(ngModel)]="email" name="email">
-    </div>
-    <div class="form__row">
-      <label class="form__label" for="password">Password:</label>
-      <input class=form_input type="password" id="password" [(ngModel)]="email" name="email">
-    </div>
-  </form>
-</div>
+<app-header></app-header>
+<main class="container container_one">
+  <div class="container__inner">
+    <form class="form form_centered">
+      <h2 class="container__title">Create a new account</h2>
+      <div class="form__row">
+        <label class="form__label" for="username">Username</label>
+        <input class=form__input type="text" id="username" [(ngModel)]="user.username" name="username">
+      </div>
+      <div class="form__row">
+        <label class="form__label" for="email">Email</label>
+        <input class=form__input type="text" id="email" [(ngModel)]="user.email" name="email">
+      </div>
+      <div class="form__row">
+        <label class="form__label" for="password">Password</label>
+        <input class=form__input type="password" id="password" [(ngModel)]="user.password" name="password">
+      </div>
+      <input type="submit" class="btn btn_block" value="Crear cuenta" (click)="signup()" [class.btn_loading]="loading">
+    </form>
+  </div>
+</main>

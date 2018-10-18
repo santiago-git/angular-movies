@@ -1,0 +1,30 @@
+.nav {
+
+}
+.nav__items {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+.nav__item {
+    list-style: none;
+    margin: 0 20px;
+}
+.header {
+    background-color: #1A76D2;
+    color: #FFF;
+}
+.hero__title {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 150%;
+}
+.hero__logo {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+}
+.hero__link, .hero__link:visited {
+    color: #FFF;
+    text-decoration: none;
+}
