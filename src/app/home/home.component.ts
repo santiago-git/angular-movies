@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, User } from '../models/user';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.state';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-home',
@@ -8,23 +12,16 @@ import { Auth, User } from '../models/user';
 })
 export class HomeComponent implements OnInit {
 
-  auth: Auth;
-  user: User;
+  user: Observable<User>;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+    this.user = store.select('user');
+  }
 
   ngOnInit() {
-    if (localStorage.getItem('auth')) {
-      this.auth = JSON.parse(localStorage.getItem('auth'));
-      this.user = this.auth.user;
-    }
   }
 
   logout() {
-    console.log("logout");
-    this.auth = null;
-    this.user = null;
-    localStorage.removeItem('auth');
   }
 
 }
