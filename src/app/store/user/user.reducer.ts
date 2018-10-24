@@ -5,7 +5,7 @@ import * as UserActions from './user.actions'
 // initial state
 const initialState: User = {
     username: null
-}
+};
 
 // Creates the reducer to handle User Actions
 export function UserReducer(state: User[] = [initialState], action: UserActions.Actions) {
@@ -14,17 +14,18 @@ export function UserReducer(state: User[] = [initialState], action: UserActions.
     switch (action.type) {
         case UserActions.USER_LOAD:
             const authLocalStorage = localStorage.getItem('auth');
-            let user: User;
             if (authLocalStorage) {
-                let auth = JSON.parse(authLocalStorage);
+                const auth = JSON.parse(authLocalStorage);
                 if (auth.jwt && auth.user) {
                     return auth.user;
                 }
             }
             console.log('There is not logged in user');
-            return [...state];
-        
-            default:
+            return state;
+        case UserActions.SET_USER:
+            localStorage.clear();
+            return { ...action.user };
+        default:
             return state;
     }
 }

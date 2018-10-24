@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
+import { SetUser } from '../store/user/user.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.state';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +12,10 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  loading: boolean = false;
+  loading = false;
   user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.user = {
@@ -23,10 +26,11 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.userService.login(this.user)
-    .subscribe(auth => {
-      console.log(auth)
-      localStorage.setItem('auth', JSON.stringify(auth));
-    })
+      .subscribe(auth => {
+        this.store.dispatch(new SetUser(auth.user));
+
+        localStorage.setItem('auth', JSON.stringify(auth));
+      });
   }
 
 }

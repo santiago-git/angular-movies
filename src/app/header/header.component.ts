@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../models/user';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.state';
+import { SetUser } from '../store/user/user.actions';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +11,20 @@ import { User } from '../models/user';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() user: User;
-  @Output() onLogout = new EventEmitter();
+  user: User;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+    store.select('user')
+      .subscribe(user => {
+        this.user = user;
+      });
+  }
 
   ngOnInit() {
   }
 
-  logout () {
-    this.onLogout.emit();
+  logout() {
+    this.store.dispatch(new SetUser(null));
   }
 
 }
