@@ -22,9 +22,15 @@ export function UserReducer(state: User[] = [initialState], action: UserActions.
                 }
             }
             console.log('There is not logged in user');
-            return [...state];
+            return state;
+
+        case UserActions.USER_LOGIN:
+            return state;
         
-            default:
+        case UserActions.USER_SET:
+            return state;
+
+        default:
             return state;
     }
 }
