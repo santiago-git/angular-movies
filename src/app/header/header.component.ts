@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../models/user';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.state';
-import { SetUser } from '../store/user/user.actions';
+import { UserSet, UserLogout } from '../store/user/user.actions';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.store.dispatch(new SetUser(null));
+    this.store.dispatch(new UserLogout());
   }
 
 }

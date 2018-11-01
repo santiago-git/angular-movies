@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
-import { SetUser } from '../store/user/user.actions';
 import { Store } from '@ngrx/store';
+import * as UserActions from '../store/user/user.actions';
 import { AppState } from '../store/app.state';
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   user: User;
 
-  constructor(private userService: UserService, private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.user = {
@@ -25,12 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.userService.login(this.user)
-      .subscribe(auth => {
-        this.store.dispatch(new SetUser(auth.user));
-
-        localStorage.setItem('auth', JSON.stringify(auth));
-      });
+    this.store.dispatch(new UserActions.UserLogin(this.user));
   }
 
 }

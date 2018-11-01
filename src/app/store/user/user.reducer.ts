@@ -1,6 +1,6 @@
-import { Action } from '@ngrx/store'
-import { User } from './../../models/user'
-import * as UserActions from './user.actions'
+import { Action } from '@ngrx/store';
+import { User } from './../../models/user';
+import * as UserActions from './user.actions';
 
 // initial state
 const initialState: User = {
@@ -8,7 +8,7 @@ const initialState: User = {
 };
 
 // Creates the reducer to handle User Actions
-export function UserReducer(state: User[] = [initialState], action: UserActions.Actions) {
+export function UserReducer(state = initialState, action: UserActions.Actions) {
 
     // Reducers
     switch (action.type) {
@@ -22,9 +22,17 @@ export function UserReducer(state: User[] = [initialState], action: UserActions.
             }
             console.log('There is not logged in user');
             return state;
-        case UserActions.SET_USER:
-            localStorage.clear();
+
+
+        case UserActions.USER_LOGIN:
+            return state;
+
+        case UserActions.USER_SET:
             return { ...action.user };
+
+        case UserActions.USER_LOGOUT:
+            return state;
+
         default:
             return state;
     }
